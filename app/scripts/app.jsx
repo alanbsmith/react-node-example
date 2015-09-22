@@ -1,3 +1,4 @@
+import '../styles/base.css';
 import React from 'react/addons';
 
 let Hello = React.createClass({

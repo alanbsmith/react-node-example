@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "NODE_ENV=production node server.js",
-    "postinstall": "webpack -p --config ./webpack.config.js"
+    "postinstall": "webpack -p --config webpack.pro.config.js --profile --progress --colors"
   },
   "author": "",
   "license": "ISC",
