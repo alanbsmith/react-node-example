@@ -5,8 +5,9 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "webpack-dev-server --content-base public/ --progress --colors",
     "start": "NODE_ENV=production node server.js",
-    "postinstall": "webpack -p --config webpack.pro.config.js --profile --progress --colors"
+    "postinstall": "webpack -p --config webpack.prod.config.js --profile --progress --colors"
   },
   "author": "",
   "license": "ISC",
@@ -20,5 +21,9 @@
     "react": "^0.13.3",
     "style-loader": "^0.12.4",
     "webpack": "^1.12.2"
+  },
+  "devDependencies": {
+    "react-hot-loader": "^1.3.0",
+    "webpack-dev-server": "^1.11.0"
   }
 }
