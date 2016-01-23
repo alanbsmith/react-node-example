@@ -1,5 +1,6 @@
 import '../styles/base.css';
-import React from 'react/addons';
+import React from 'react';
+import ReactDOM from 'react-dom';
 
 let Hello = React.createClass({
   render() {
@@ -9,4 +10,4 @@ let Hello = React.createClass({
   }
 });
 
-React.render(<Hello name='World' />, document.body);
+ReactDOM.render(<Hello name='World' />, document.getElementById('root'));
