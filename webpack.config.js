@@ -1,18 +1,31 @@
 var webpack = require('webpack');
+var path = require('path');
 
 module.exports = {
-  entry: ['./app/scripts/app.jsx'],
-  output: {
-    path: './public',
-    filename: 'app.js'
-  },
+  entry: [
+    './src/index'
+  ],
   module: {
     loaders: [
-      { test: /\.html$/, loader: "file?name=[name].[ext]"} ,
-      { test: /\.css$/, loader: 'style!css' },
-      { test: /\.js$/, loader: "babel-loader?stage=0", exclude: '/node_modules/' },
-      { test: /\.jsx$/, loaders: ['jsx-loader', "babel-loader?stage=0"] }
+      { test: /\.js?$/, loader: 'babel', exclude: /node_modules/ },
+      { test: /\.s?css$/, loader: 'style!css!sass' },
     ]
   },
-  plugins: []
+  resolve: {
+    extensions: ['', '.js']
+  },
+  output: {
+    path: path.join(__dirname, '/dist'),
+    publicPath: '/',
+    filename: 'bundle.js'
+  },
+  devServer: {
+    contentBase: './dist',
+    hot: true
+  },
+  plugins: [
+    new webpack.optimize.OccurenceOrderPlugin(),
+    new webpack.HotModuleReplacementPlugin(),
+    new webpack.NoErrorsPlugin()
+  ]
 };
