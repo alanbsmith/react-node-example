@@ -1,12 +1,14 @@
 {
   "name": "react-node-starter",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "an example for deploying a React + NodeJS app to Heroku",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js",
-    "postinstall": "webpack -p --config webpack.prod.config.js"
+    "postinstall": "webpack -p --config webpack.prod.config.js",
+    "lint": "eslint .",
+    "lint:watch": "esw -w src/**"
   },
   "author": "",
   "license": "ISC",
@@ -25,6 +27,12 @@
     "webpack": "^1.12.14"
   },
   "devDependencies": {
+    "babel-eslint": "^7.2.1",
+    "eslint": "^3.18.0",
+    "eslint-loader": "^1.7.0",
+    "eslint-plugin-jsx-a11y": "^4.0.0",
+    "eslint-plugin-react": "^6.10.3",
+    "eslint-watch": "^3.0.1",
     "webpack-dev-middleware": "^1.6.1",
     "webpack-dev-server": "^1.14.1",
     "webpack-hot-middleware": "^2.10.0"

@@ -1,12 +1,16 @@
-import '../assets/stylesheets/base.scss';
-import React, { Component } from 'react';
+import React, { PropTypes } from 'react';
 
-class App extends Component {
-  render() {
-    return(
-      <h1>Hello, {this.props.name}!</h1>
-    )
-  }
+import '../assets/stylesheets/base.scss';
+
+
+const App = ({ name }) => {
+  return (
+    <h1>Hello, {name}!</h1>
+  );
+};
+
+App.propTypes = {
+  name: PropTypes.string,
 };
 
 export default App;
