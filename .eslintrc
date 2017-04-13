@@ -1,18 +1,6 @@
-// Inspired by https://github.com/airbnb/javascript but less opinionated.
-
-// We use eslint-loader so even warnings are very visibile.
-// This is why we only use "WARNING" level for potential errors,
-// and we don't use "ERROR" level at all.
-
-// In the future, we might create a separate list of rules for production.
-// It would probably be more strict.
-
-module.exports = {
+{
   root: true,
-
   parser: 'babel-eslint',
-
-  // import plugin is temporarily disabled, scroll below to see why
   plugins: [/*'import', */'jsx-a11y', 'react'],
 
   env: {
@@ -54,7 +42,7 @@ module.exports = {
     'default-case': ['warn', { commentPattern: '^no default$' }],
     'dot-location': ['warn', 'property'],
     'eol-last': 'warn',
-    eqeqeq: ['warn', 'always', {'null': 'ignore'}],
+    'eqeqeq': ['warn', 'always'],
     'indent': ['warn', 2, { "SwitchCase": 1 }],
     'guard-for-in': 'warn',
     'keyword-spacing': 'warn',
@@ -149,31 +137,6 @@ module.exports = {
     'use-isnan': 'warn',
     'valid-typeof': 'warn',
 
-    // https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/
-
-    // TODO: import rules are temporarily disabled because they don't play well
-    // with how eslint-loader only checks the file you change. So if module A
-    // imports module B, and B is missing a default export, the linter will
-    // record this as an issue in module A. Now if you fix module B, the linter
-    // will not be aware that it needs to re-lint A as well, so the error
-    // will stay until the next restart, which is really confusing.
-
-    // This is probably fixable with a patch to eslint-loader.
-    // When file A is saved, we want to invalidate all files that import it
-    // *and* that currently have lint errors. This should fix the problem.
-
-    // 'import/default': 'warn',
-    // 'import/export': 'warn',
-    // 'import/named': 'warn',
-    // 'import/namespace': 'warn',
-    // 'import/no-amd': 'warn',
-    // 'import/no-duplicates': 'warn',
-    // 'import/no-extraneous-dependencies': 'warn',
-    // 'import/no-named-as-default': 'warn',
-    // 'import/no-named-as-default-member': 'warn',
-    // 'import/no-unresolved': ['warn', { commonjs: true }],
-
-    // https://github.com/yannickcr/eslint-plugin-react/tree/master/docs/rules
     'react/jsx-boolean-value': 'warn',
     'react/jsx-closing-bracket-location': 'warn',
     'react/jsx-curly-spacing': 'warn',
@@ -221,4 +184,4 @@ module.exports = {
     'jsx-a11y/img-redundant-alt': 'warn',
     'jsx-a11y/no-access-key': 'warn'
   }
-};
+}
