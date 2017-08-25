@@ -10,11 +10,11 @@ This is a simple starter to get you up and running for React projects. This is i
 * Heroku-ready deployment setup
 
 ### UP & RUNNING
-* Install dependencies
+* Install dependencies:
 `$ npm install` or `$ yarn`
 
 * Fire up a development server:
-* `$ npm run dev`
+`$ npm run dev`
 
 Once the server is running, you can visit `http://localhost:8080/`
 
