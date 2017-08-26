@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import '../assets/stylesheets/base.scss';
 
 
-const App = ({ name }) => {
+function App({ name }) {
   return (
     <h1>Hello, {name}!</h1>
   );

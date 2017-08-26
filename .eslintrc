@@ -156,7 +156,6 @@
       ignore: [],
     }],
     'react/jsx-sort-props': 'warn',
-    'react/jsx-space-before-closing': 'warn',
     'react/jsx-tag-spacing': 'warn',
     'react/jsx-uses-react': 'warn',
     'react/jsx-uses-vars': 'warn',
@@ -180,7 +179,7 @@
 
     // https://github.com/evcohen/eslint-plugin-jsx-a11y/tree/master/docs/rules
     'jsx-a11y/aria-role': 'warn',
-    'jsx-a11y/img-has-alt': 'warn',
+    'jsx-a11y/alt-text': 'warn',
     'jsx-a11y/img-redundant-alt': 'warn',
     'jsx-a11y/no-access-key': 'warn'
   }
