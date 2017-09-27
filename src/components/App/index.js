@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import '../assets/stylesheets/base.scss';
+import 'src/assets/stylesheets/base.scss';
 
 
 function App({ name }) {

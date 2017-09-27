@@ -8,41 +8,72 @@
     "dev": "webpack-dev-server --hot --inline",
     "lint": "eslint src/**",
     "lint:watch": "esw -w src/**",
+    "review": "npm run lint && npm test",
     "start": "npm run build && NODE_ENV=production node server.js",
-    "test": "mocha --compilers js:babel-core/register ./test/**/*.spec.js --require ignore-styles"
+    "test":"jest src/**",
+    "test:watch": "jest src/** --watch",
+    "test:watchAll": "jest src/** --watchAll",
+    "test:coverage:report": "open coverage/lcov-report/index.html"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.2",
-    "babel-preset-es2015": "^6.24.1",
+    "babel-polyfill": "^6.26.0",
+    "babel-preset-env": "^1.6.0",
     "babel-preset-react": "^6.24.1",
-    "css-loader": "^0.28.5",
-    "express": "^4.15.4",
+    "babel-preset-stage-0": "^6.24.1",
+    "css-loader": "^0.28.7",
+    "enzyme-adapter-react-16": "^1.0.0",
+    "express": "^4.15.5",
     "node-sass": "^4.5.3",
-    "prop-types": "^15.5.10",
-    "react": "^15.6.1",
-    "react-dom": "^15.6.1",
+    "prop-types": "^15.6.0",
+    "raf": "^3.3.2",
+    "react": "^16.0.0",
+    "react-dom": "^16.0.0",
     "sass-loader": "^6.0.6",
     "style-loader": "^0.18.2",
-    "webpack": "^3.5.5"
+    "webpack": "^3.6.0"
   },
   "devDependencies": {
-    "babel-eslint": "^7.2.3",
-    "enzyme": "^2.9.1",
-    "eslint": "^4.5.0",
+    "babel-eslint": "^8.0.1",
+    "enzyme": "^3.0.0",
+    "eslint": "^4.7.2",
     "eslint-loader": "^1.9.0",
     "eslint-plugin-jsx-a11y": "^6.0.2",
-    "eslint-plugin-react": "^7.3.0",
+    "eslint-plugin-react": "^7.4.0",
     "eslint-watch": "^3.1.2",
-    "expect": "^1.20.2",
-    "ignore-styles": "^5.0.1",
-    "mocha": "^3.5.0",
-    "react-addons-test-utils": "^15.6.0",
-    "react-test-renderer": "^15.6.1",
+    "jest": "^21.2.0",
+    "react-addons-test-utils": "^15.6.2",
+    "react-test-renderer": "^16.0.0",
     "webpack-dev-middleware": "^1.12.0",
-    "webpack-dev-server": "^2.7.1",
-    "webpack-hot-middleware": "^2.18.2"
+    "webpack-dev-server": "^2.8.2",
+    "webpack-hot-middleware": "^2.19.1"
+  },
+  "jest": {
+    "collectCoverage": true,
+    "collectCoverageFrom": [
+      "src/**",
+      "!src/index.js"
+    ],
+    "coverageThreshold": {
+      "global": {
+        "branches": 90,
+        "functions": 90,
+        "lines": 90,
+        "statements": 90
+      }
+    },
+    "moduleDirectories": [
+      "node_modules",
+      "./"
+    ],
+    "moduleNameMapper": {
+      "^.+.(css|scss|sass)$": "<rootDir>/__tests__/cssStub.js"
+    },
+    "setupFiles": [
+      "raf/polyfill"
+    ]
   }
 }

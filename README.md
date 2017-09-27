@@ -21,7 +21,7 @@ $ yarn
 
 Fire up a development server:
 ```
-$ npm run dev
+$ yarn dev
 ```
 
 Once the server is running, you can visit `http://localhost:8080/`
@@ -38,29 +38,70 @@ $ sudo npm i -g eslint eslint-watch
 
 To run the linter once:
 ```
-$ npm run lint
+$ yarn lint
 ```
 
 To run the watch task:
 ```
-$ npm run lint:watch
+$ yarn lint:watch
 ```
 
 ## Testing
+An initial test suite has been setup with two tests (one passing and one intentionally failing).
+We're using Jest and Enzyme for our test setup. The basic test setup lives in `./__tests__`.
+The main configuration for Jest lives at the bottom of `package.json`.  I've also added a few
+handy scripts, which I've listed below. Jest also gives us a test coverage tool for free, so I've added that too. The setup is at the bottom of `package.json`. Everything is set to 90% coverage, but your welcome to update that to whatever you'd like.
 
-To run the tests:
+To run the tests once:
 ```
-$ npm test
+$ yarn test
+```
+
+To run the watch script (for only relevant test files)
+```
+$ yarn test:watch
+```
+
+To run the watch script (for all test files)
+```
+$ yarn test:watchAll
+```
+
+To view the coverage report:
+```
+$ yarn test:coverage:report
+```
+
+## Review
+If you'd like to run the linter and tests at once (this is a nice check before pushing to Github or deploys), you can run:
+
+```
+$ yarn review
 ```
 
 ## Production Build
 
 To build your production assets and run the server:
 ```
-$ npm start
+$ yarn start
 ```
 
 ## CHANGELOG
+**v2.0.0**
+This app has been updated to use React v.16.0.0! 🎉
+
+Major Changes:
+* Updates React and ReactDOM to v16
+* Replaces Mocha with Jest
+* Adds `babel-polyfill` and updates Babel config
+* Colocates tests with components
+
+Minor Changes:
+* Updates all other dependencies to latest
+* Allows absolute import paths
+* Adds new test scripts
+* Adds test coverage
+
 **v1.1.0**
 This app has been updated to use React v15.6 and Webpack 3.5! 🎉
 

@@ -1,5 +1,8 @@
 const webpack = require('webpack');
 const path = require('path');
+// React v.16 uses some newer JS functionality, so to ensure everything
+// works across all browsers, we're adding babel-polyfill here.
+require('babel-polyfill');
 
 module.exports = {
   entry: [
@@ -12,7 +15,11 @@ module.exports = {
     ]
   },
   resolve: {
-    extensions: ['.js','.scss']
+    modules: [
+      path.resolve('./'),
+      path.resolve('./node_modules'),
+    ],
+    extensions: ['.js','.scss'],
   },
   output: {
     path: path.join(__dirname, '/dist'),
